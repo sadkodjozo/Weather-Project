@@ -10,7 +10,7 @@ app.get('/', function (req, res) {
 
     res.sendFile(__dirname + "/index.html");
     
-})
+});
 
 app.post("/", function(req,res){
     
@@ -22,7 +22,7 @@ app.post("/", function(req,res){
 
     const unit = (units == "metric")? "Celsius" : "Fahrenheit";
     https.get(url, function (response) {
-        console.log(response.statusCode);
+        // console.log(response.statusCode);
 
         response.on('data', function(data){
             const weatherData = JSON.parse(data);
@@ -39,10 +39,11 @@ app.post("/", function(req,res){
             res.send();
         })
     });
-})
-
-//Renamed Procfile
-
-app.listen(process.env.PORT || 3000, function () {
-    console.log("Server is running on port 3000");
 });
+
+
+let port = process.env.PORT;
+if (port == null || port == "") {
+  port = 3000;
+}
+app.listen(port);
