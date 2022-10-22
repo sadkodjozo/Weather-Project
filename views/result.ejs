@@ -1,0 +1,30 @@
+<%- include("header") -%>
+
+    <div class="text-light bg-dark rounded-lg  p-5">
+        <h1 class="display-4"><img src='<%=iconURL %>'> <%=city %></h1>
+        <h3 >Temparature is <%=TEMP%> &deg<%=UNIT%>.</h3>
+        <h3 class="lead">It is <%= DESCRIPTION %>.</h3>
+    </div>
+    
+
+
+    <form action="/" method="post">
+
+        <div class="row justify-content-center my-4">
+            <div class="col-6">
+                <input type="text" name="cityName" class="form-control" placeholder="City Name">
+            </div>
+            <div class="col-3">
+                <select name="unit" class="form-select" id="">
+                    <option value="metric">Celsius</option>
+                    <option value="imperial">Fahrenheit</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="button-container text-center">
+            <button class="btn btn-primary" type="submit">Check Weather</button>
+        </div>
+    </form>
+
+    <%- include("footer") -%>
