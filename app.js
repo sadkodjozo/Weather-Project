@@ -2,6 +2,9 @@ const { render } = require('ejs');
 const express = require('express');
 const app = express();
 const https = require('https');
+require('dotenv').config()
+
+
 // const api = require(__dirname + "/api.js");
 
 app.use(express.urlencoded({ extended: true }));
@@ -15,9 +18,8 @@ let iconurl;
 let icon;
 let units;
 let unit;
-const apiKey = "9dea9d7afa497c6d5d3f6ba3d829d449" //WEATHER_API_KEY; 
+const apiKey = process.env.WEATHER_API_KEY; 
 let url;
-
 var query;
 
 
